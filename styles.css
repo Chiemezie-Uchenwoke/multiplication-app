@@ -91,3 +91,12 @@ nav{
     background-color: var(--secondary-color);
     color: var(--off-white);
 }
+
+footer{
+    background-color: var(--secondary-color);
+    color: var(--off-white);
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 1rem;
+    font-weight: bold;
+}
