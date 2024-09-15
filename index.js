@@ -30,7 +30,7 @@ submit.addEventListener("click", submitAnswer);
 function submitAnswer(){
     let answer = document.getElementById("answer").value;
     answer = Number(answer);
-    console.log(answer);
+    // console.log(answer);
 
     let score = document.getElementById("score");
     let numberOfQuestionsAnswered = document.getElementById("clicks");
