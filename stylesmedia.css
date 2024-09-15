@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+@media (min-width: 600px){
+    .fpar{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 768px){
+    nav{
+        font-size: 1.2rem;
+    }
+
+    .calc-cont{
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .fpar p{
+        font-weight: 900;
+        font-size: 1.2rem;
+    }
+
+    .quest p{
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+}
+
+@media (min-width: 1000px){
+    nav{
+        font-size: 1.5rem;
+    }
+
+    .calc-cont{
+        width: 60%;
+        gap: 3rem;
+    }
+
+    .fpar p{
+        font-size: 1.3rem;
+    }
+
+    .quest p{
+        font-size: 2rem;
+    }
+
+    .answer,
+    .submit{
+        width: 300px;
+    }
+}
