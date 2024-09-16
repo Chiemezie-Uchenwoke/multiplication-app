@@ -37,7 +37,7 @@ function submitAnswer(){
 
     if ((num1.innerHTML * num2.innerHTML) === answer){
         countScore++;
-        console.log(countScore);
+        // console.log(countScore);
         score.innerHTML = countScore;
         // console.log(score.);
     }else{
