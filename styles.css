@@ -11,6 +11,7 @@
     --tertiary-color: #FF9209;
     --accent-color: #FFD099;
     --off-white: #e2e2e2;
+    --answer-color: #11855e;
 }
 
 body{
@@ -42,7 +43,7 @@ nav{
 /* Calc Cont */
 .calc-cont{
     width: 85%;
-    height: 75vh;
+    height: 80vh;
     background-color: var(--off-white);
     border-radius: 5px;
     padding: 1rem;
@@ -50,6 +51,7 @@ nav{
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
+    position: relative;
 }
 
 /* F-Par */
@@ -62,6 +64,26 @@ nav{
 .fpar p{
     color: var(--secondary-color);
     font-weight: 800;
+}
+
+.respcont{
+    width: 100%;
+    height: 6vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--secondary-color);
+    text-align: center;
+    /* padding: 0.3rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.givresp{
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--off-white) !important;
 }
 
 /* Quest */

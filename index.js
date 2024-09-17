@@ -11,11 +11,11 @@ let submit = document.getElementById("submit");
 // Create Random Numbers
 function generateNumbers(){
     let randomNumber1 = Math.random();
-    randomNumber1 = randomNumber1 * 12;
+    randomNumber1 = randomNumber1 * 20;
     randomNumber1 = Math.floor(randomNumber1) + 1;
 
     let randomNumber2 = Math.random();
-    randomNumber2 = randomNumber2 * 12;
+    randomNumber2 = randomNumber2 * 20;
     randomNumber2 = Math.floor(randomNumber2) + 1;
 
     // Redeclare num1 and num2
@@ -40,13 +40,20 @@ function submitAnswer(){
         // console.log(countScore);
         score.innerHTML = countScore;
         // console.log(score.);
+        document.getElementById("givresp").innerHTML = "Correct!";
     }else{
         countScore = countScore + 0;
+        document.getElementById("givresp").innerHTML = `Wrong! Answer is ${num1.innerHTML * num2.innerHTML}`;
     }
 
     //To increase value of clicks when submit button is clicked
     clicks++;
     numberOfQuestionsAnswered.innerHTML = clicks;
+
+  // Set a timeout to remove the response text after 3 seconds
+    setTimeout(function() {
+        document.getElementById("givresp").innerHTML = "";
+    }, 2000);
 
     // After submitting, clear the input field
     document.getElementById("answer").value = '';

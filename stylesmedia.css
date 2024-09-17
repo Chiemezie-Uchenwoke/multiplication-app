@@ -5,6 +5,8 @@
     font-family: "Inter", sans-serif;
 }
 
+
+
 @media (min-width: 600px){
     .fpar{
         flex-direction: row;
@@ -45,6 +47,10 @@
 
     .fpar p{
         font-size: 1.3rem;
+    }
+
+    .respcont{
+        height: 8vh;
     }
 
     .quest p{
