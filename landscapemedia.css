@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+
+/* orientation : landscape */
+@media (max-width: 506px) and (orientation: landscape){
+    .calc-cont{
+        height: 110vh;
+    }
+}
