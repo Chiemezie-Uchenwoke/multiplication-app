@@ -11,12 +11,14 @@ let submit = document.getElementById("submit");
 // Create Random Numbers
 function generateNumbers(){
     let randomNumber1 = Math.random();
-    randomNumber1 = randomNumber1 * 20;
-    randomNumber1 = Math.floor(randomNumber1) + 1;
+    const maxNumber = 100;
+    const minNumber = 11;
+    randomNumber1 = randomNumber1 * (maxNumber - minNumber);
+    randomNumber1 = Math.floor(randomNumber1) + minNumber;
 
     let randomNumber2 = Math.random();
-    randomNumber2 = randomNumber2 * 20;
-    randomNumber2 = Math.floor(randomNumber2) + 1;
+    randomNumber2 = randomNumber2 * (maxNumber - minNumber);
+    randomNumber2 = Math.floor(randomNumber2) + minNumber;
 
     // Redeclare num1 and num2
     num1.innerHTML = randomNumber1;
