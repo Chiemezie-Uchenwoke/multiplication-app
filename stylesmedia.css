@@ -58,7 +58,8 @@
     }
 
     .answer,
-    .submit{
+    .submit,
+    .reload{
         width: 300px;
     }
 }

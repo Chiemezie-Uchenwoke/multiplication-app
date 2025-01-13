@@ -11,7 +11,7 @@
     --tertiary-color: #FF9209;
     --accent-color: #FFD099;
     --off-white: #e2e2e2;
-    --answer-color: #11855e;
+    --answer-color: #05c283;
 }
 
 body{
@@ -95,11 +95,13 @@ nav{
 .quest p{
     font-size: 1rem;
     font-weight: 700;
+    text-align: center;
 }
 
 /* answer */
 .answer,
-.submit{
+.submit,
+.reload{
     border: 2px solid var(--secondary-color);
     width: 200px;
     margin-inline: auto;
@@ -111,6 +113,15 @@ nav{
 
 .submit{
     background-color: var(--secondary-color);
+    color: var(--off-white);
+    cursor: pointer;
+}
+
+.reload{
+    background-color: #28a745;;
+    font-weight: 500;
+    border-color: #28a745;;
+    cursor: pointer;
     color: var(--off-white);
 }
 

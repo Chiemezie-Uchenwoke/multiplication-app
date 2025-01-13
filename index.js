@@ -1,65 +1,81 @@
 // Declare Variables
 let clicks = 0;
-// console.log(clicks.innerHTML);
+const maxAttempts = 10;
+const reloadButton = document.getElementById("reload");
+reloadButton.style.display = "none";
 
-let num1 = document.getElementById("num1");
-let num2 = document.getElementById("num2");
+const num1 = document.getElementById("num1");
+const num2 = document.getElementById("num2");
 
-let countScore = 0 // Keep track of the score globally
-let submit = document.getElementById("submit");
+let countScore = 0; // Keep track of the score globally
+const submit = document.getElementById("submit");
+const scoreDisplay = document.getElementById("score");
+const clicksDisplay = document.getElementById("clicks");
+const responseDisplay = document.getElementById("givresp");
+const answerInput = document.getElementById("answer");
 
-// Create Random Numbers
-function generateNumbers(){
-    let randomNumber1 = Math.random();
+// End Game Logic
+const endGame = () => {
+    submit.style.display = "none";
+    reloadButton.style.display = "block";
+    document.getElementById("quest").innerHTML = "<p>Great Job! You've completed all the questions!</p>";
+};
+
+// Generate Random Numbers
+const generateNumbers = () => {
     const maxNumber = 100;
     const minNumber = 11;
-    randomNumber1 = randomNumber1 * (maxNumber - minNumber);
-    randomNumber1 = Math.floor(randomNumber1) + minNumber;
 
-    let randomNumber2 = Math.random();
-    randomNumber2 = randomNumber2 * (maxNumber - minNumber);
-    randomNumber2 = Math.floor(randomNumber2) + minNumber;
+    const randomNumber1 = Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
+    const randomNumber2 = Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
 
-    // Redeclare num1 and num2
-    num1.innerHTML = randomNumber1;
-    num2.innerHTML = randomNumber2;
-}
-generateNumbers(); // Call the generateNumbers function to initialize
+    num1.textContent = randomNumber1;
+    num2.textContent = randomNumber2;
+};
 
-// condition for scoring
-submit.addEventListener("click", submitAnswer);
+// Initialize Numbers
+generateNumbers();
 
-function submitAnswer(){
-    let answer = document.getElementById("answer").value;
-    answer = Number(answer);
-    // console.log(answer);
+// Submit Answer Logic
+const submitAnswer = () => {
+    const answer = Number(answerInput.value);
 
-    let score = document.getElementById("score");
-    let numberOfQuestionsAnswered = document.getElementById("clicks");
-
-    if ((num1.innerHTML * num2.innerHTML) === answer){
-        countScore++;
-        // console.log(countScore);
-        score.innerHTML = countScore;
-        // console.log(score.);
-        document.getElementById("givresp").innerHTML = "Correct!";
-    }else{
-        countScore = countScore + 0;
-        document.getElementById("givresp").innerHTML = `Wrong! Answer is ${num1.innerHTML * num2.innerHTML}`;
+    if (isNaN(answer)) {
+        responseDisplay.textContent = "Please enter a valid number.";
+        return;
     }
 
-    //To increase value of clicks when submit button is clicked
-    clicks++;
-    numberOfQuestionsAnswered.innerHTML = clicks;
+    // Check Answer
+    if (Number(num1.textContent) * Number(num2.textContent) === answer) {
+        countScore++;
+        responseDisplay.textContent = "Correct!";
+    } else {
+        responseDisplay.textContent = `Wrong! Answer is ${Number(num1.textContent) * Number(num2.textContent)}`;
+    }
 
-  // Set a timeout to remove the response text after 3 seconds
-    setTimeout(function() {
-        document.getElementById("givresp").innerHTML = "";
+    // Update Score and Clicks
+    scoreDisplay.textContent = countScore;
+    clicks++;
+    clicksDisplay.textContent = clicks;
+
+    // Clear Input and Response After Delay
+    answerInput.value = "";
+    setTimeout(() => {
+        responseDisplay.textContent = "";
     }, 2000);
 
-    // After submitting, clear the input field
-    document.getElementById("answer").value = '';
-
-    // Generate new numbers for the next question
+    // Generate New Numbers
     generateNumbers();
-}
+
+    // Check Game End
+    if (clicks === maxAttempts){
+        endGame();
+    }
+};
+
+// Event Listener for Submit
+submit.addEventListener("click", submitAnswer);
+
+reloadButton.addEventListener("click", () => {
+    location.reload();
+});
